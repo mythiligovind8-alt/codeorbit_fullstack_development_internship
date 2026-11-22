@@ -1,4 +1,4 @@
-name: Deploy Portfolio and todo list
+name: Deploy Portfolio and Todo List
 
 on:
   push:
@@ -21,10 +21,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare website files
+        run: |
+          mkdir -p _site
+          cp -R task1_portfolio/. _site/
+          cp -R task2_todolist _site/task2_todolist
+
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: task1_portfolio
+          path: _site
 
       - name: Deploy
         uses: actions/deploy-pages@v4
