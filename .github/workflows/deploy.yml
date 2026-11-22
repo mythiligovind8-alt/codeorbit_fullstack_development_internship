@@ -1,4 +1,4 @@
-name: Deploy Portfolio
+name: Deploy Portfolio and todo list
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Upload Portfolio
+      - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
           path: task1_portfolio
